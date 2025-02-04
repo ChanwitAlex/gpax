@@ -34,22 +34,24 @@
             label2 = new Label();
             tblnputGPAx = new TextBox();
             groupBox1 = new GroupBox();
+            label3 = new Label();
             tbGPAmin = new TextBox();
+            tbSTD = new TextBox();
             tbGPAmax = new TextBox();
             label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            button1 = new Button();
+            GPAMin = new Label();
+            GPAMax = new Label();
+            btclear = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnAD
             // 
-            btnAD.Location = new Point(256, 67);
+            btnAD.Location = new Point(253, 67);
             btnAD.Name = "btnAD";
             btnAD.Size = new Size(83, 54);
             btnAD.TabIndex = 0;
-            btnAD.Text = "button1";
+            btnAD.Text = "Add bata";
             btnAD.UseVisualStyleBackColor = true;
             btnAD.Click += btnAD_Click;
             // 
@@ -64,7 +66,7 @@
             // 
             // tbGPAx
             // 
-            tbGPAx.Location = new Point(117, 22);
+            tbGPAx.Location = new Point(117, 72);
             tbGPAx.Name = "tbGPAx";
             tbGPAx.Size = new Size(100, 23);
             tbGPAx.TabIndex = 2;
@@ -80,18 +82,20 @@
             // 
             // tblnputGPAx
             // 
-            tblnputGPAx.Location = new Point(117, 67);
+            tblnputGPAx.Location = new Point(117, 22);
             tblnputGPAx.Name = "tblnputGPAx";
             tblnputGPAx.Size = new Size(100, 23);
             tblnputGPAx.TabIndex = 4;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(tbGPAmin);
+            groupBox1.Controls.Add(tbSTD);
             groupBox1.Controls.Add(tbGPAmax);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(GPAMin);
+            groupBox1.Controls.Add(GPAMax);
             groupBox1.Controls.Add(tbGPAx);
             groupBox1.Controls.Add(tblnputGPAx);
             groupBox1.Controls.Add(btnAD);
@@ -102,7 +106,16 @@
             groupBox1.Size = new Size(381, 194);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "GPAx";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(52, 165);
+            label3.Name = "label3";
+            label3.Size = new Size(47, 15);
+            label3.TabIndex = 12;
+            label3.Text = "student";
             // 
             // tbGPAmin
             // 
@@ -110,6 +123,13 @@
             tbGPAmin.Name = "tbGPAmin";
             tbGPAmin.Size = new Size(100, 23);
             tbGPAmin.TabIndex = 9;
+            // 
+            // tbSTD
+            // 
+            tbSTD.Location = new Point(117, 162);
+            tbSTD.Name = "tbSTD";
+            tbSTD.Size = new Size(100, 23);
+            tbSTD.TabIndex = 11;
             // 
             // tbGPAmax
             // 
@@ -126,39 +146,40 @@
             label5.Size = new Size(0, 15);
             label5.TabIndex = 7;
             // 
-            // label4
+            // GPAMin
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(46, 137);
-            label4.Name = "label4";
-            label4.Size = new Size(50, 15);
-            label4.TabIndex = 6;
-            label4.Text = "GPAMin";
+            GPAMin.AutoSize = true;
+            GPAMin.Location = new Point(46, 137);
+            GPAMin.Name = "GPAMin";
+            GPAMin.Size = new Size(50, 15);
+            GPAMin.TabIndex = 6;
+            GPAMin.Text = "GPAMin";
             // 
-            // label3
+            // GPAMax
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(46, 106);
-            label3.Name = "label3";
-            label3.Size = new Size(51, 15);
-            label3.TabIndex = 5;
-            label3.Text = "GPAMax";
+            GPAMax.AutoSize = true;
+            GPAMax.Location = new Point(46, 106);
+            GPAMax.Name = "GPAMax";
+            GPAMax.Size = new Size(51, 15);
+            GPAMax.TabIndex = 5;
+            GPAMax.Text = "GPAMax";
             // 
-            // button1
+            // btclear
             // 
-            button1.Location = new Point(33, 242);
-            button1.Name = "button1";
-            button1.Size = new Size(318, 74);
-            button1.TabIndex = 10;
-            button1.Text = "Clear";
-            button1.UseVisualStyleBackColor = true;
+            btclear.Location = new Point(62, 237);
+            btclear.Name = "btclear";
+            btclear.Size = new Size(209, 54);
+            btclear.TabIndex = 10;
+            btclear.Text = "Clear";
+            btclear.UseVisualStyleBackColor = true;
+            btclear.Click += btclear_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(668, 377);
-            Controls.Add(button1);
+            Controls.Add(btclear);
             Controls.Add(groupBox1);
             Name = "Form1";
             Text = "Form1";
@@ -176,10 +197,12 @@
         private TextBox tblnputGPAx;
         private GroupBox groupBox1;
         private Label label5;
-        private Label label4;
-        private Label label3;
+        private Label GPAMin;
+        private Label GPAMax;
         private TextBox tbGPAmin;
         private TextBox tbGPAmax;
-        private Button button1;
+        private Button btclear;
+        private Label label3;
+        private TextBox tbSTD;
     }
 }

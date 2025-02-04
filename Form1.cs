@@ -6,31 +6,62 @@ namespace gpax
         public Form1()
         {
             InitializeComponent();
+            GPACalculator = new GPACalculator();
         }
 
         private void btnAD_Click(object sender, EventArgs e)
         {
-            if (double.TryParse(this.tblnputGPAx.Text, out double input))
-            {
-                if (input >= 0.00 && input <= 4.00)
+            
+                try
                 {
-                    this.tbGPAx.Text = GPACalculator.getGPAX().ToString();
-                    this.tbGPAmax.Text = GPACalculator.getGPAX().ToString();
-                    this.tbGPAmin.Text = GPACalculator.getGPAX().ToString();
+                    double input = double.Parse(this.tblnputGPAx.Text);
+                    GPACalculator.setGPA(input);
+                    UpdateUI();
 
-                    this.tblnputGPAx.Text = GPACalculator.getGPAX().ToString();
+                    this.tbGPAx.Text = GPACalculator.getGPAX().ToString("F2");
+                    this.tbGPAmax.Text = GPACalculator.getMaxGPA().ToString("F2");
+                    this.tbGPAmin.Text = GPACalculator.getMinGPA().ToString("F2");
+
+
+
+
+                    this.tblnputGPAx.Text = string.Empty;
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show("??????????? GPA ???????? 0.00 - 4.00");
-                    this.tblnputGPAx.Clear();
+                    MessageBox.Show("WRONG");
+                    this.tblnputGPAx.Text = string.Empty;
                 }
-            }
-            else
-            {
-                MessageBox.Show("????????????????????????????????");
-                this.tblnputGPAx.Clear();
-            }   
+
+            
         }
+
+
+
+
+        private void btclear_Click(object sender, EventArgs e)
+        {
+            this.tblnputGPAx.Text = string.Empty;
+            this.tbGPAx.Text = string.Empty;
+            this.tbGPAmax.Text = string.Empty;
+            this.tbGPAmin.Text = string.Empty;
+            UpdateUI();
+        }
+
+
+
+
+        private void UpdateUI()
+        {
+            this.tbGPAx.Text = GPACalculator.getGPAX().ToString("F2");
+            this.tbGPAmax.Text = GPACalculator.getMaxGPA().ToString("F2");
+            this.tbGPAmin.Text = GPACalculator.getMinGPA().ToString("F2");
+            this.tbSTD.Text = GPACalculator.getStudentCount().ToString();
+        }
+
+
+
     }
 }
+
+       

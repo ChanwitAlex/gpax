@@ -9,29 +9,45 @@ namespace gpax
 {
     internal class GPACalculator
     {
-        private double gpa_sum = 0;
+        private double gpa_sum;
         private int n;
-        private double gpa_min = double.MaxValue;
-        private double gpa_max = double.MinValue;
+        private double maxGPA = double.MinValue;
+        private double minGPA = double.MaxValue;
 
         public void setGPA(double gpa)
         {
             this.gpa_sum += gpa;
             this.n++;
 
-            if (gpa < gpa_min) gpa_min = double.MaxValue;
+            if (gpa > this.maxGPA)
+            {
+                this.maxGPA = gpa;
+            }
+
+            if (gpa < this.minGPA)
+            {
+                this.minGPA = gpa;
+            }
         }
-        public double getMaxGPa()
-        {
-            return (n > 0) ? this.gpa_max: 0;
-        }
-        public double getMinGPA()
-        {
-            return (n > 0) ? this.gpa_min : 0;
-        }
+
         public double getGPAX()
         {
-            return (n > 0) ? this.gpa_sum / this.n : 0;
+            return this.n == 0 ? 0 : this.gpa_sum / this.n;
+        }
+
+        public double getMaxGPA()
+        {
+            return this.n == 0 ? 0 : this.maxGPA;
+        }
+
+        public double getMinGPA()
+        {
+            return this.n == 0 ? 0 : this.minGPA;
+        }
+
+        public int getStudentCount()
+        {
+            return this.n;
         }
     }
 }
